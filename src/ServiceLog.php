@@ -24,7 +24,7 @@ class ServiceLog
         return $this->auditFolderPath;
     }
 
-    public function writeLog(string $tenantId, string $event, string $by, bool $status, string $url)
+    public function writeLog(string $tenantId, string $event, string $by, string $uid, bool $status, string $url)
     {
         $tenantStorage  =   $this->getPath().'/'.$tenantId;
 
@@ -39,6 +39,7 @@ class ServiceLog
         $fields =   [
             $event,
             $by,
+            $uid,
             Carbon::now(),
             $status ? 1 : 0,
             $url,
