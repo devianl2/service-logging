@@ -34,7 +34,7 @@ class ServiceLog
         $csvRealPath    =   storage_path('app/'.$tenantStorage).'/'.$fileName; // csv file path
 
         // Rewrite a new file
-        $writeCsv = fopen($csvRealPath, 'w');
+        $writeCsv = fopen($csvRealPath, 'a+'); // mode a+ will go to end of the line
 
         $fields =   [
             $event,
